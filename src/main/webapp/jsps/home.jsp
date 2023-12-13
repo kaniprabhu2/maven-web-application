@@ -43,7 +43,7 @@ out.println("Server Host Name :: "+inetAddress.getHostName());
 	</span>
 </div>
 <hr>
-	<p> Service : <a href="services/employee/getEmployeeDetails">Get Employee Details </p>
+	<p> Service : <a href="services/employee/getEmployeeDetails">Get Details </p>
 <hr>
 <hr>
 <p align=center>Kanimozhi - Devops Engineer.</p>
