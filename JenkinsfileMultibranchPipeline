@@ -1,0 +1,45 @@
+pipeline{
+agent any;
+tools{
+    maven 'maven3.9.5'
+     }
+stages{
+ stage('CheckOutCode'){
+  steps{
+     git branch: 'master', credentialsId: 'github', url: 'https://github.com/kaniprabhu2/maven-web-application.git'
+       }
+}
+ stage('Build'){
+  steps{
+   sh "mvn clean package"
+       }
+}
+ stage('SonarReport'){
+  steps{
+    sh "mvn clean sonar:sonar"
+       }
+}
+ stage('Upload ArtifactIntoNexus'){
+  steps{
+    sh "mvn clean deploy"
+       }
+}
+stage('DeployIntoTomcat'){
+   steps{
+     input 'Deploy To Dev?'
+
+       sshagent(['tomcat']){
+                
+         sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@54.234.212.24:/opt/tomcat9/webapps"
+                            }
+         }
+     post {
+        // If Maven was able to run the tests, even if some of the test
+        // failed, record the test results and archive the war file.
+       success{
+            archiveArtifacts 'target/*.war'
+              }
+}
+}
+}
+  
