@@ -5,12 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Kanimozhi DevOps Blog- Home Page</title>
-<link href="images/mithunlogo.jpg" rel="icon">
+<link href="images/kani_logo.jpg" rel="icon">
 </head>
 </head>
 <body>
 <h1 align="center">Welcome to Kanimozhi DevOps Blog. Ph No: +91-9773819219  Delhi, India </h1>
-<h1 align="center"> Kanimozhi Deovops Engineer</h1>
+<h1 align="center"> Kanimozhi Devops Engineer</h1>
 <hr>
 <br>
 	<h1><h3> Server Side IP Address </h3><br>
