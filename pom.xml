@@ -35,23 +35,13 @@
             <version>20160212</version>
         </dependency>
 
-        <!-- ✅ JUnit 5 (ADDED) -->
+        <!-- ✅ JUnit 5 -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <version>5.9.3</version>
             <scope>test</scope>
         </dependency>
-
-        <!-- REMOVE OLD JUNIT (IMPORTANT) -->
-        <!-- ❌ DELETE THIS BLOCK
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
-        </dependency>
-        -->
 
         <!-- Servlet -->
         <dependency>
@@ -112,11 +102,37 @@
                 </configuration>
             </plugin>
 
-            <!-- ✅ REQUIRED FOR JUNIT 5 -->
+            <!-- ✅ JUnit 5 Support -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M7</version>
+            </plugin>
+
+            <!-- ✅ JACOCO (CRITICAL ADDITION) -->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.8</version>
+                <executions>
+
+                    <!-- Attach agent -->
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+
+                    <!-- Generate report -->
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+
+                </executions>
             </plugin>
 
             <!-- Jetty -->
